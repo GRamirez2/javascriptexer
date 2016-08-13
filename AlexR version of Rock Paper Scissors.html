@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loop through arrays</title>
+
+
+<script>
+// array of otptions
+var options = ['r','p','s'],
+   tie = 0,
+   userWin = 0,
+   computerWin = 0;
+
+document.onkeyup = function(event) {
+
+ var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+
+ // random choice by computer
+ var randomNum = Math.floor(Math.random()*options.length);
+ var computerGuess = options[randomNum];
+
+
+ if(options.indexOf(userGuess) == -1) {
+   alert('not valid choice');
+ }
+
+
+   if(userGuess == computerGuess) {
+     tie++;
+     document.querySelector(".game").innerHTML = 'It\'s a tie';
+   } else {
+
+             if(userGuess == 'r') {
+               if(computerGuess == 'p') {
+                 computerWin++;
+                 document.querySelector(".game").innerHTML = 'computer wins with ' + computerGuess + ' score: ' + computerWin;
+               } else {
+                 userWin++;
+                 document.querySelector(".game").innerHTML = 'user wins with ' + userGuess + ' score: ' + userWin;
+               }
+             }
+
+
+             if(userGuess == 'p') {
+               if(computerGuess == 'r') {
+                 userWin++;
+                 document.querySelector(".game").innerHTML = 'user wins with ' + userGuess + ' score: ' + userWin;
+               } else {
+                 computerWin++;
+                 document.querySelector(".game").innerHTML = 'computer wins with ' + computerGuess + ' score: ' + computerWin;
+               }
+             }
+
+
+             if(userGuess == 's') {
+               if(computerGuess == 'p') {
+                 userWin++;
+                 document.querySelector(".game").innerHTML = 'user wins with ' + userGuess + ' score: ' + userWin;
+               } else {
+                 computerWin++;
+                 document.querySelector(".game").innerHTML = 'computer wins with ' + computerGuess + ' score: ' + computerWin;
+               }
+             }
+          }/*end bracket to first ELSE, all other occurences are with in this else*/
+
+}/*end bracket for initial function of document on keyup*/
+
+
+     // if(userGuess == rock) {
+     //   if(computerGuess == paper) {
+     //     paper/computerGuess wins
+     //   } else {
+     //     userGuess wins
+     //   }
+     // }
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+</script>
+
+</head>
+<body>
+
+
+
+<div class="game">test</div>
+
+<!-- 1. choose your weapon of three choices
+2. compare the choices
+3. check if you win
+4. check if opponent wins
+5. check if it's a tie
+6. if you win, you say in your face
+7. if your opponent wins, then say congratulations
+8. if it's a tie, then try again? -->
+
+
+
+</body>
+</html>
+`

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loop through arrays</title>
+</head>
+<body>
+
+<!-- <div class="introscore" style="margin-top: 50px; text-align:center;">
+	<p><h1>ROCK-PAPER-SCISSORS</h1> The game is easy to play.<br> 
+		Tap the R, P, or S to select your weapon.<br>
+		<strong>
+		<h2>R = Rock</h2>
+		<h2>P = Paper</h2>
+		<h2>S = Scissors</h2>
+		</strong>.
+	</p>
+	</div> -->
+
+<script>
+var user = prompt("Let's play ROCK-PAPER-SCISSORS. What is your name?");
+
+
+// array of otptions
+var options = ['r','p','s'];
+
+var	tie = 0;
+var userWin = 0;
+var computerWin = 0;
+
+document.onkeyup = function(event) {/*all JS needs to be in this tag*/
+
+ var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+
+ // random choice by computer
+ var randomNum = Math.floor(Math.random()*options.length);
+ var computerGuess = options[randomNum];/*I Don't Know What This Does. options[randomNum}*/
+
+
+ if(options.indexOf(userGuess) == -1) {
+   alert('Whoops, you pressed a wrong key. Press R, P, or S. Press OK to continue');
+ }
+
+ // console.log(computerGuess)
+
+ if (userGuess == computerGuess) {
+ 	tie++
+ }	else if ((userGuess == 'r') && (computerGuess == 'p')) {
+ 	computerWin++
+ }	else if ((userGuess == 's') && (computerGuess == 'p')) {
+ 	userWin++
+ }	else if ((userGuess == 'p') && (computerGuess == 'r')) {
+ 	userWin++
+ }	else if ((userGuess == 'r') && (computerGuess == 's')) {
+ 	userWin++
+ }	else if ((userGuess == 's') && (computerGuess == 'r')) {
+ 	computerWin++
+ }	else if ((userGuess == 'p') && (computerGuess == 's')) {
+ 	computerWin++
+ }
+
+
+// console.log(userWin, computerWin, tie)
+ document.querySelector(".introscore").innerHTML = user+"\'s score = " + userWin + " ~ Computer's Score = " + computerWin + " ~ We've tied " + tie + " times";
+
+}/*end of document.onkeyup, needs to contain everthing in the JS*/
+
+
+
+</script>
+
+
+<div class="title" style="margin-top: 50px; text-align:center;">
+	<p><h1>ROCK-PAPER-SCISSORS</h1></p></div>
+
+<div class = "introscore" style="margin-top: 50px; text-align:center;">
+		<p>The game is easy to play.<br> 
+		Tap the R, P, or S to select your weapon.<br></p></div>
+<div class = "instructions" style="margin top: 25px; text-align: center;">
+		<strong>
+		<h2>R = Rock</h2>
+		<h2>P = Paper</h2>
+		<h2>S = Scissors</h2>
+		</strong>.
+	</p>
+	</div>
+
+
+
+
+
+</body>
+</html>
